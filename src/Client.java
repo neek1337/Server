@@ -79,7 +79,7 @@ class Client implements Runnable {
                             VFServer.roundResult.getAndAdd(Integer.valueOf(line.substring(line.indexOf("*", 1) + 1)));
                         }
                         VFServer.results.add(VFServer.index, new AtomicInteger(VFServer.roundResult.get() % 2));
-                        if ((VFServer.index + 1) % 15 == 0 && VFServer.index != 0) {
+                        if ((VFServer.index + 1) % 16 == 0 && VFServer.index != 0) {
                             /*int indexOfChar = VFServer.results.get(VFServer.index) * 16 +
                                     VFServer.results.get(VFServer.index - 1) * 8 +
                                     VFServer.results.get(VFServer.index - 2) * 4 +
@@ -88,7 +88,7 @@ class Client implements Runnable {
                             char c = VFServer.alphabet.charAt(indexOfChar);*/
                             int asciiCode = 0;
                             int powerOf2 = 1;
-                            for (int i = 0; i < 15; i++) {
+                            for (int i = 0; i < 16; i++) {
                                 asciiCode += VFServer.results.get(VFServer.index - i).get() * powerOf2;
                                 powerOf2 *= 2;
                             }
